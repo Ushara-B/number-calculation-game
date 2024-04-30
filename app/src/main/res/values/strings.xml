@@ -9,4 +9,5 @@
     <string name="your_score">Your Score</string>
     <string name="close">close</string>
     <string name="try_again">try again</string>
+    <string name="high_score_0">High Score: 0</string>
 </resources>
