@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     private fun runTimer() {
         lifecycleScope.launch(Dispatchers.IO) {
             (1..29).asFlow().onStart {
-
+                // Start the timer animation
                 binding.constraintLayout.transitionToEnd()
 
             }.onCompletion {
@@ -128,17 +128,20 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun getRandomNumbers() {
+        // Generate two random numbers between 2 and 98
         firstRandomNumber = Random.nextInt(2, 99)
         secondRandomNumber = Random.nextInt(2, 99)
         binding.tvQuestionNumber.text = "$firstRandomNumber + $secondRandomNumber"
     }
 
     private fun getHighScore(): Int {
+        // Retrieve the high score from shared preferences
         val sharedPreferences = getSharedPreferences("GamePrefs", MODE_PRIVATE)
         return sharedPreferences.getInt("HighScore", 0)
     }
 
     private fun saveHighScore(score: Int) {
+        // Save the high score to shared preferences
         val sharedPreferences = getSharedPreferences("GamePrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putInt("HighScore", score)
